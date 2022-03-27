@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class Util : MonoBehaviour
 {
+    
+    public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
+    {
+        // ??? 다형성 헷갈린다.
+        // Transform 이랑 GameObject 는 별개네. Object 가 최상위고, GameObject 는 다른 것
+        Transform transform = FindChild<Transform>(go, name, recursive);
+        if (transform == null)
+        {
+            return null;
+        }
+        return transform.gameObject;
+    }
+
     /**
      * @details 해당 개체의 자식개체를 (재귀적으로) 찾는다
      * @param[recursive] true: 재귀적으로 찾기

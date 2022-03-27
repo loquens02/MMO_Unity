@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/**
+ * @details Mouse Event 구독받는 Manager
+ */
 public class InputManager // : MonoBehaviour . Singleton Managers 있으니까 불필요
 {
     // 일종의 delegate. [콜백+ 함수를 인자로 넘겨주기]를 자주 써서 미리 타입별로 만들어둔 것

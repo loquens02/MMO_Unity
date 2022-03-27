@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Manager 烹钦包府
+ * @details Manager 烹钦包府
  */
 public class Managers : MonoBehaviour
 {
