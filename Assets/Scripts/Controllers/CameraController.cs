@@ -22,10 +22,25 @@ public class CameraController : MonoBehaviour
     // Player 이동 ~ Camera 이동 순서 안 맞아서 부들부들 떨리는 문제 해결
     void LateUpdate()  
     {
+
         if(_mode == Define.CameraMode.QuaterView)
         {
-            transform.position = _player.transform.position + _delta;
-            transform.LookAt(_player.transform);
+            RaycastHit hit;
+            // player 가 camera 에 쏘는 광선이 장애물에 닿을 경우, player ~ 장애물 거리의 80% 위치에 camera 이동
+            if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Wall"))) 
+            {
+                float dist = (hit.point - _player.transform.position).magnitude * 0.8f;
+                Debug.DrawRay(_player.transform.position, hit.point, Color.blue);
+
+                transform.position = _player.transform.position + _delta.normalized * dist;
+            }
+            else // camera ~ player 사이에 장애물이 없을 때는, 따라가기만
+            {
+                transform.position = _player.transform.position + _delta;
+                transform.LookAt(_player.transform);
+            }
+
+            
         }
     }
 
