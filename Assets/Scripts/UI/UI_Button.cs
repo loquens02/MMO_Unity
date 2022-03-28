@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /**
@@ -23,27 +24,37 @@ public class UI_Button : UI_Base
     {
         TestObject,
     }
+    enum Images
+    {
+        ItemIcon,
+    }
     private void Start()
     {
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
         Bind<GameObject>(typeof(GameObjects));
+        Bind<Image>(typeof(Images));
 
 
         // 이 방법대로 하려면 enum component 순서와 Unity component 순서가 일치해야 한다.
         // Prefab 단위니까 가능하려나.
-        Get<Text>((int)Texts.ScoreText).text = "Score Text !";
+        //Get<Text>((int)Texts.ScoreText).text = "Score Text !"; 얘가 scoreText 를 덮어씌우니 주석
+
+        // Extension - method channing by this
+        GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+
+        GameObject go= Get<Image>((int)Images.ItemIcon).gameObject; //일단 이미지 말고 GameObject. Event를 연동하려 하기때문
+        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
     }
 
-    
+
 
     int _score = 0;
-    public void OnButtonClick()
+    public void OnButtonClicked(PointerEventData data)
     {
+        //Debug.Log("click button !");
         _score++;
-        Debug.Log("click button !");
-
-        
+        Get<Text>((int)Texts.ScoreText).text = $"점수: {_score}점";
     }
 }
 
@@ -52,6 +63,10 @@ public class UI_Button : UI_Base
  public class UI_Button{
  [SerializeField]
     Text _text;
- public void OnButtonClick(){
+ public void OnButtonClicked(){
     _text.text = $"점수: {_score}";
+
+** AddUIEvent
+    UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
+    evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });
  */ 

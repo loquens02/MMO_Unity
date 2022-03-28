@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
 
-        // UI 생성 (임시) -- 37 강 넘어서도 그냥 두네. 이걸 진짜 Player 에 붙인다고 ????
-        Managers.Resource.Instantiate("UI/UI_Button");
+        // UI 생성 (임시) -- 40강에서 제거
+        //Managers.Resource.Instantiate("UI/UI_Button");
     }
 
     public enum PlayerState

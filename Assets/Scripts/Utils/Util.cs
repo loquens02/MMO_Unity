@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class Util : MonoBehaviour
 {
-    
+    /**
+     * @details component가 없다면 추가해서 반환
+     */
+    public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
+    {
+        T component = go.GetComponent<T>();
+        if (component == null)
+        {
+            component = go.AddComponent<T>();
+        }
+        return component;
+    }
     public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
     {
         // ??? 다형성 헷갈린다.
