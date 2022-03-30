@@ -97,12 +97,8 @@ public class UIManager
 
         // _order++ ? Unity 에서 직접 끝어다 놓는 경우 처리가 안 되는 문제가 있다.> UI_Popup.cs 에서 관리
 
+        // 중복 코드가 남아있었다 (22.3.30)
         // 생성한 여러 popup 개체 몰아넣을 부모를 (찾거나 만들어서) 지정해주기
-        GameObject root = GameObject.Find("@UI_Root");
-        if (root == null)
-        {
-            root = new GameObject { name = "@UI_Root" };
-        }
         go.transform.SetParent(Root.transform);
 
 

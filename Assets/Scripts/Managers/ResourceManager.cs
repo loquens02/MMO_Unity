@@ -19,7 +19,15 @@ public class ResourceManager
             return null;
         }
 
-        return Object.Instantiate(prefab, parent); // prefab 을 생성해서 붙일 parent
+        // 코드 정리- Object 자동 생성시 이름에 'Clone' 이 안 붙었으면 좋겠다
+        GameObject go = Object.Instantiate(prefab, parent);
+        int index = go.name.IndexOf("(Clone)");
+        if(index > 0)
+        {
+            go.name = go.name.Substring(0, index); // inplace 유의. (Clone) 나오기 전까지만 남기기
+        }
+
+        return go; // prefab 을 생성해서 붙일 parent
     }
 
     public void Destoy(GameObject go)

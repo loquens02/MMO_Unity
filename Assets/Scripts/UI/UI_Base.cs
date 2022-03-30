@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Base : MonoBehaviour
+public abstract class UI_Base : MonoBehaviour
 {
     Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
+
+    public abstract void Init();
 
     protected void Bind<T>(Type type) where T : UnityEngine.Object
     {
@@ -48,6 +50,10 @@ public class UI_Base : MonoBehaviour
         return objects[idx] as T;
     }
 
+    protected GameObject GetGameObject(int idx)
+    {
+        return Get<GameObject>(idx);
+    }
     protected Text GetText(int idx)
     {
         return Get<Text>(idx);

@@ -20,10 +20,13 @@ public class PlayerController : MonoBehaviour
         // UI 생성 (임시) -- 40강에서 제거
         //Managers.Resource.Instantiate("UI/UI_Button");
 
-        
-        // UI 생성 (임시)
-        UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>(); // script 이름과 개체 이름을 같게 하면 편하다.
+
+        // UI 생성 (임시) -- 44강 인벤토리실습1 에서 제거
+        //UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>(); // script 이름과 개체 이름을 같게 하면 편하다.
         //Managers.UI.ClosePopupUI(ui); - 바로 닫는 테스트용
+
+        // UI 생성 (임시)
+        Managers.UI.ShowSceneUI<UI_Inven>();
 
     }
 

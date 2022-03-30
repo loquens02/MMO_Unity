@@ -13,4 +13,9 @@ public static class Extension
     {
         UI_Base.AddUIEvent(go, action, type);
     }
+
+    public static T GetOrAddComponent<T>(this GameObject go) where T : UnityEngine.Component
+    {
+        return Util.GetOrAddComponent<T>(go);
+    }
 }
