@@ -47,6 +47,30 @@ public class UIManager
         }
     }
 
+
+    /**
+     * @details (popup 이나 고정UI 가 아닌) 별도의 UI 만들기. 
+     * @param[in] parent 붙일 부모가 있으면 지정. optional. ex: UI_Inven
+     * @param[in] name 다른 개체에 속하는 prefab. ex: UI_Inven_Item
+     * @see UI_Inven.cs/ Init()
+     */
+    public T MakeSubItem<T>(Transform parent= null, string name= null) where T: UI_Base
+    {
+        if (string.IsNullOrEmpty(name))
+        {
+            name = typeof(T).Name;
+        }
+
+        GameObject go = Managers.Resource.Instantiate($"UI/SubItem/{name}");
+        if(parent != null)
+        {
+            go.transform.SetParent(parent);
+        }
+
+        return Util.GetOrAddComponent<T>(go);
+    }
+
+
     /**
      * @details (계층이나 order가 없는) 고정UI 만들기
      * @param[in] name Prefab/UI/Scene/UI_Button 개체 이름

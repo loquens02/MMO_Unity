@@ -48,10 +48,10 @@ public class UI_Button : UI_Popup
         //Get<Text>((int)Texts.ScoreText).text = "Score Text !"; 얘가 scoreText 를 덮어씌우니 주석
 
         // Extension - method channing by this
-        GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+        GetButton((int)Buttons.PointButton).gameObject.BindEvent(OnButtonClicked);
 
         GameObject go = Get<Image>((int)Images.ItemIcon).gameObject; //일단 이미지 말고 GameObject. Event를 연동하려 하기때문
-        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
+        BindEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
     }
 
 
@@ -72,7 +72,7 @@ public class UI_Button : UI_Popup
  public void OnButtonClicked(){
     _text.text = $"점수: {_score}";
 
-** AddUIEvent
+** BindEvent
     UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
     evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; });
  */ 
