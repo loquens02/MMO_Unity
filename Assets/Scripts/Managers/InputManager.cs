@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 /**
  * @details Mouse Event 구독받는 Manager
+ * @see MouseAction 을 null 이 아니게끔: Managers.Input.MouseAction += function
  */
 public class InputManager // : MonoBehaviour . Singleton Managers 있으니까 불필요
 {
@@ -29,19 +30,23 @@ public class InputManager // : MonoBehaviour . Singleton Managers 있으니까 불필�
         //    KeyAction.Invoke(); // 전파: 얘들아 keyAction 있었어! > 구독했던 애들이 다 듣게 됨
         //}
 
-        if(Input.GetMouseButton(0)) // 좌클릭 눌렀을 때. 누르고만 있어도 인식
+        if(MouseAction != null)
         {
-            MouseAction.Invoke(Define.MouseEvent.Press);
-            _pressed = true; // 눌려있다
-        }
-        else // 마우스 좌클릭을 떼면
-        {
-            if (_pressed) // 이전에 한 번이라도 좌클릭을 Down 했으면
+            if (Input.GetMouseButton(0)) // 좌클릭 눌렀을 때. 누르고만 있어도 인식
             {
-                MouseAction.Invoke(Define.MouseEvent.Click); // Click Mouse Event 발생
+                MouseAction.Invoke(Define.MouseEvent.Press);
+                _pressed = true; // 눌려있다
             }
-            _pressed = false;
+            else // 마우스 좌클릭을 떼면
+            {
+                if (_pressed) // 이전에 한 번이라도 좌클릭을 Down 했으면
+                {
+                    MouseAction.Invoke(Define.MouseEvent.Click); // Click Mouse Event 발생
+                }
+                _pressed = false;
+            }
         }
+        
         
     }
 }
