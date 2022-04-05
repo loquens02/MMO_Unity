@@ -25,8 +25,8 @@ public class PlayerController : MonoBehaviour
         //UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>(); // script 이름과 개체 이름을 같게 하면 편하다.
         //Managers.UI.ClosePopupUI(ui); - 바로 닫는 테스트용
 
-        // UI 생성 (임시)
-        Managers.UI.ShowSceneUI<UI_Inven>();
+        // UI 생성 (임시) -- 47강 Scene Manager1 에서 제거
+        //Managers.UI.ShowSceneUI<UI_Inven>();
 
     }
 
