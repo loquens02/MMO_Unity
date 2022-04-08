@@ -5,7 +5,7 @@ using UnityEngine;
 public class Util : MonoBehaviour
 {
     /**
-     * @details component가 없다면 추가해서 반환
+     * <summary>component가 없다면 추가해서 반환</summary>
      */
     public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
     {
@@ -29,10 +29,10 @@ public class Util : MonoBehaviour
     }
 
     /**
-     * @details 해당 개체의 자식개체를 (재귀적으로) 찾는다
-     * @param[recursive] true: 재귀적으로 찾기
-     * @see GetComponentsInChildren https://docs.unity3d.com/kr/530/ScriptReference/Component.GetComponentsInChildren.html
-     * @see SerializedProperty.CountInProperty (with parent)
+     * <summary>해당 개체의 자식개체를 (재귀적으로) 찾는다</summary>
+     * <param name="recursive">true: 재귀적으로 찾기</param>
+     * <see langword="GetComponentsInChildren" href="https://docs.unity3d.com/kr/530/ScriptReference/Component.GetComponentsInChildren.html"/>  
+     * <see langword="SerializedProperty.CountInProperty (with parent)"/> 
      */
     public static T FindChild<T> (GameObject go, string name= null, bool recursive=false) where T: UnityEngine.Object
     {

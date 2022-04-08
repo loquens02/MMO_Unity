@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /**
- * @details Scene 생성/삭제 관리 총괄 [Game, Login]
- * @see Managers.cs, LoginScene.cs, 
+ * <summary>Scene 생성/삭제 관리 총괄 [Game, Login]</summary>
+ * <see cref="Managers"/>
+ * <see cref="LoginScene"/>
  */
 public class SceneManagerEx
 {
     /**
-     * @details 현재 사용중인 Scene. 다른 것들을 가져오는 선봉대 역할
+     * <summary>현재 사용중인 Scene. 다른 것들을 가져오는 선봉대 역할</summary>
      * LoginScene component 를 object type 으로 변환해서 넣은 것
      */
     public BaseScene CurrentScene { get { return GameObject.FindObjectOfType<BaseScene>(); } }
@@ -23,8 +24,7 @@ public class SceneManagerEx
     }
 
     /**
-     * @details enum to string by C# reflection
-     * @see JAVA에서 이거하려면 삽질해야 하는데
+     * <summary>enum to string by C# reflection</summary>
      */
     string GetSceneName(Define.Scene type)
     {

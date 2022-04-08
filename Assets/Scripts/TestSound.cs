@@ -24,8 +24,8 @@ public class TestSound : MonoBehaviour
         //float lifeTime = Mathf.Max(audioClip.length, audioClip2.length);
         //GameObject.Destroy(gameObject, lifeTime);
 
-        Managers.Sound.Play(Define.Sound.Effect, "UnityChan/univ0003");
-        Managers.Sound.Play(Define.Sound.Effect, "water-HighLess-¼öµµ²ÀÁöÄåÄå-0.3dBNorm");
+        Managers.Sound.Play("UnityChan/univ0003", Define.Sound.Effect);
+        Managers.Sound.Play("water-HighLess-¼öµµ²ÀÁöÄåÄå-0.3dBNorm");
     }
 
     private void OnTriggerExit(Collider other)

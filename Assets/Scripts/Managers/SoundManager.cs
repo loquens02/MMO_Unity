@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * @details Sound 3요소[AudioSource_실행기기, AudioClip_음원, AudioListener_귀]
- * @see Define.cs
+ * <summary>Sound 3요소[AudioSource_실행기기, AudioClip_음원, AudioListener_귀]</summary>
+ * <see cref="Define"/>
  */
 public class SoundManager
 {
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount];
 
     /**
-     * @details 어느 Scene 에나 존재하는 전역 @Sound 객체
-     * @see Managers.cs/ Init()
+     * <summary>어느 Scene 에나 존재하는 전역 @Sound 객체</summary> 
+     * <see cref="Managers"/>Init()
      */
     public void Init()
     {
@@ -34,13 +34,17 @@ public class SoundManager
             _audioSources[(int)Define.Sound.Bgm].loop = true;
         }
     }
-    public void Play(Define.Sound type, string path, float pitch = 1.0f)
+    /**
+     * <param name="path">음원파일명. 필수</param>
+     */
+    public void Play(string path, Define.Sound type= Define.Sound.Effect, float pitch = 1.0f)
     {
         if (path.Contains("Sounds/") == false)
         {
             path = $"Sounds/{path}";
         }
 
+        // 배경음악
         if (type == Define.Sound.Bgm)
         {
             AudioClip audioClip = Managers.Resource.Load<AudioClip>(path);
@@ -49,6 +53,17 @@ public class SoundManager
                 Debug.Log($"Audio Clip is Missing !: {path}");
                 return;
             }
+
+            AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
+            // 다른 sound 가 실행중이었다면 끄고
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+
+            audioSource.pitch = pitch;
+            audioSource.clip = audioClip;
+            audioSource.Play();
         }
         else
         {
@@ -66,7 +81,7 @@ public class SoundManager
     }
 
     /**
-     * @see https://ansohxxn.github.io/unity%20lesson%202/ch9-1/
+     * <see cref="https://ansohxxn.github.io/unity%20lesson%202/ch9-1/"/> 
      */
     public void Clear()
     {

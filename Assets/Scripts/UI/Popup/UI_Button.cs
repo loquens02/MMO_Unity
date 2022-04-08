@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /**
- * @details Prefab 
- * @pre enum 구성요소 순서와 Unity Prefab 내부 component 순서가 일치해야 한다
+ * <summary>Prefab </summary>
+ * <remarks>enum 구성요소 순서와 Unity Prefab 내부 component 순서가 일치해야 한다</remarks>
  */
 public class UI_Button : UI_Popup
 {

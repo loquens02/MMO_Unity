@@ -25,8 +25,8 @@ public class UIManager
     }
 
     /**
-     * @details popup 혹은 고정UI 생성시 order 적용여부 관리
-     * @param[in] sort true: popup을 생성할 경우 order 증가, false: 고정 UI인 경우
+     * <summary>popup 혹은 고정UI 생성시 order 적용여부 관리</summary>
+     * <param name="sort">true: popup을 생성할 경우 order 증가, false: 고정 UI인 경우</param>
      */
     public void SetCanvas(GameObject go, bool sort= true)
     {
@@ -49,10 +49,10 @@ public class UIManager
 
 
     /**
-     * @details (popup 이나 고정UI 가 아닌) 별도의 UI 만들기. 
-     * @param[in] parent 붙일 부모가 있으면 지정. optional. ex: UI_Inven
-     * @param[in] name 다른 개체에 속하는 prefab. ex: UI_Inven_Item
-     * @see UI_Inven.cs/ Init()
+     * <summary>(popup 이나 고정UI 가 아닌) 별도의 UI 만들기. </summary>
+     * <param name="parent">parent 붙일 부모가 있으면 지정. optional. ex: UI_Inven</param>
+     * <param name="name">name 다른 개체에 속하는 prefab. ex: UI_Inven_Item</param>
+     * <see cref="UI_Inven" langword="Init"/>
      */
     public T MakeSubItem<T>(Transform parent= null, string name= null) where T: UI_Base
     {
@@ -72,9 +72,9 @@ public class UIManager
 
 
     /**
-     * @details (계층이나 order가 없는) 고정UI 만들기
-     * @param[in] name Prefab/UI/Scene/UI_Button 개체 이름
-     * @return T Scripts/UI/Scene/UI_Button.cs 스크립트
+     * <summary>(계층이나 order가 없는) 고정UI 만들기</summary>
+     * <param name="name">Prefab/UI/Scene/UI_Button 개체 이름</param>
+     * <returns>T Scripts/UI/Scene/UI_Button.cs 스크립트</returns>
      */
     public T ShowSceneUI<T>(string name = null) where T : UI_Scene
     {
@@ -100,9 +100,9 @@ public class UIManager
     }
 
     /**
-     * @details PopupStack 에 넣기
-     * @param[in] name Prefab/UI/Popup/UI_Button 개체 이름
-     * @return T Scripts/UI/Popup/UI_Button.cs 스크립트
+     * <summary>PopupStack 에 넣기</summary>
+     * <param name="name">Prefab/UI/Popup/UI_Button 개체 이름</param>
+     * <returns>T Scripts/UI/Popup/UI_Button.cs 스크립트</returns>
      */
     public T ShowPopupUI<T>(string name= null) where T: UI_Popup
     {
@@ -132,7 +132,7 @@ public class UIManager
 
 
     /**
-     * @details 마지막에 열었던 Popup 닫기. 직접 사용을 권장하지 않는다.
+     * <summary>마지막에 열었던 Popup 닫기. 직접 사용을 권장하지 않는다.</summary>
      * 강의에서는 public 으로 둠
      */ 
     protected void ClosePopupUI()
@@ -152,9 +152,8 @@ public class UIManager
     }
 
     /**
-     * @details 여러 popup 중 중간 순서의 popup 을 삭제하려는 시도 방지. 
-     * @param[in] popup 삭제하려고 의도한 팝업이 맞는지 확인
-     * @see ClosePopupUI()
+     * <summary>여러 popup 중 중간 순서의 popup 을 삭제하려는 시도 방지. </summary>
+     * <param name="popup">삭제하려고 의도한 팝업이 맞는지 확인</param>
      */
     public void ClosePopupUI(UI_Popup popup)
     {
@@ -175,7 +174,7 @@ public class UIManager
 
 
     /**
-     * @details 모든 popup 닫기
+     * <summary>모든 popup 닫기</summary>
      */
     public void CloseAllPopupUI()
     {

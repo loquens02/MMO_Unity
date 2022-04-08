@@ -5,7 +5,7 @@ using UnityEngine;
 public class UI_Popup : UI_Base
 {
     /**
-     * @details order 필요 여부- true
+     * <summary>order 필요 여부- true</summary>
      */
     public override void Init()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 /**
- * @details 미리 정의된 객체(Unity 제공)도 method channing 가능하게끔 한다
+ * <summary>미리 정의된 객체(Unity 제공)도 method channing 가능하게끔 한다</summary>
  */
 public static class Extension 
 {

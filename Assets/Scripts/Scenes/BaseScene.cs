@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 /**
- * @details type 으로 Scene 관리하는 최상위 부모
- * @see Define.cs / enum Scene
+ * <summary>type 으로 Scene 관리하는 최상위 부모</summary>
+ * <see cref="Define" langword="enum Scene"/>
  */
 public abstract class BaseScene : MonoBehaviour
 {
@@ -20,8 +20,8 @@ public abstract class BaseScene : MonoBehaviour
 
 
     /**
-     * @details EventSystem 유무체크 후 가져오기
-     * @see Scene Manager #1 12:56
+     * <summary>EventSystem 유무체크 후 가져오기</summary>
+     * <see langword="Scene Manager #1 12:56"/>
      */
     protected virtual void Init()
     {

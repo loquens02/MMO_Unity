@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * @details Manager 통합관리
+ * <summary>Manager 통합관리</summary> 
  */
 public class Managers : MonoBehaviour
 {
@@ -34,8 +34,8 @@ public class Managers : MonoBehaviour
         Input.OnUpdate();
     }
     /**
-     * @details 각 Manager Init() (Init 이 있는 경우에만)
-     * 주의: 여기서 Instance 를 부르면 무한 재귀.
+     * <summary>각 Manager Init() (Init 이 있는 경우에만)</summary>  
+     * <remarks>여기서 Instance 를 부르면 무한 재귀.</remarks>
      */
     static void init()
     {

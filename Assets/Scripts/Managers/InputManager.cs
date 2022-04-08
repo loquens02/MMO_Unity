@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 /**
- * @details Mouse Event 구독받는 Manager
- * @see MouseAction 을 null 이 아니게끔: Managers.Input.MouseAction += function
+ * <summary>Mouse Event 구독받는 Manager</summary>
+ * <remarks>MouseAction 을 null 이 아니게끔: Managers.Input.MouseAction += function</remarks>
  */
 public class InputManager // : MonoBehaviour . Singleton Managers 있으니까 불필요
 {

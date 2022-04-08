@@ -11,7 +11,7 @@ public class UI_EventHandler : MonoBehaviour, IDragHandler, IPointerClickHandler
     public Action<PointerEventData> OnDragHandler = null;
     public Action<PointerEventData> OnClickHandler = null;
     /**
-     * @details UI요소 드래그 이벤트 리스너
+     * <summary>UI요소 드래그 이벤트 리스너</summary>
      * 필요할 때 추가
      */
     //public void OnBeginDrag(PointerEventData eventData)
