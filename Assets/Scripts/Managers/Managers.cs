@@ -13,11 +13,13 @@ public class Managers : MonoBehaviour
     InputManager _input = new InputManager();
     ResourceManager _resource = new ResourceManager();
     SceneManagerEx _scene = new SceneManagerEx();
+    SoundManager _sound = new SoundManager();
     UIManager _ui = new UIManager();
 
     public static InputManager Input { get { return Instance._input; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SceneManagerEx Scene { get { return Instance._scene; } }
+    public static SoundManager Sound { get { return Instance._sound; } }
     
     public static UIManager UI { get { return Instance._ui; } }
 
@@ -31,6 +33,10 @@ public class Managers : MonoBehaviour
     {
         Input.OnUpdate();
     }
+    /**
+     * @details 각 Manager Init() (Init 이 있는 경우에만)
+     * 주의: 여기서 Instance 를 부르면 무한 재귀.
+     */
     static void init()
     {
         if(s_instance == null)
@@ -45,6 +51,8 @@ public class Managers : MonoBehaviour
 
             DontDestroyOnLoad(go); // 왠만해서는 삭제 안 되도록
             s_instance = go.GetComponent<Managers>();
+
+            s_instance._sound.Init();
         }
         
     }
